@@ -1386,6 +1386,7 @@ def sdm_transpose(M):
     MT = {}
     for i, Mi in M.items():
         for j, Mij in Mi.items():
+            Mij = Mij if not hasattr(Mij, 'transpose') else Mij.transpose()
             try:
                 MT[j][i] = Mij
             except KeyError:
